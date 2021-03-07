@@ -1,0 +1,14 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  namespace: istio-system
+  name: istio-control-plane
+spec:
+  profile: default
+  components:
+    ingressGateways:
+    - enabled: true
+      name: istio-ingressgateway
+      k8s:
+        serviceAnnotations:
+          service.beta.kubernetes.io/azure-load-balancer-internal: "false"

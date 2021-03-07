@@ -1,0 +1,35 @@
+# Define persistent storage for Prometheus (PVC)
+prometheus:
+  prometheusSpec:
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          storageClassName: managed-premium-retain
+          resources:
+            requests:
+              storage: 5Gi
+
+# Define persistent storage for Alertmanager (PVC)
+alertmanager:
+  alertmanagerSpec:
+    storage:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          storageClassName: managed-premium-retain  
+          resources:
+            requests:
+              storage: 5Gi
+
+# Grafana
+grafana:
+  replicas: 1
+  admin:
+    existingSecret: "grafana-secret"
+    userKey: grafana-admin-username
+    passwordKey: grafana-admin-password
+  grafana.ini:
+    server:
+      root_url: 'http://%(domain)s/grafana/'
+      serve_from_sub_path: true
