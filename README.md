@@ -9,6 +9,8 @@
 6.	No environment for dev & test
 7.	No monitoring is setup for metrics and logs
 
+![image](https://user-images.githubusercontent.com/75414098/110336828-8b0d9300-8025-11eb-8871-b30ba8555c95.png)
+
 ## Wanted solution:
 1.	The Application must serve variable amount of traffic. Most users are active during business hours. During big events and conferences the traffic could be 4 times more than typical.
 2.	Preserve data up to 3 years and recover it if needed.
@@ -37,6 +39,8 @@ Use Notejam's Python/Django implementation
 7.	Slack integration for alerts from Prometheus. (Recomonded)
 8.	Elastic + Fluentd + Kibana for log monitoring or Azure OMS for both metrics and log monitoring. (Recommended)
 9.	SonarQube hosted in the cluster - can be used by AppDev repos to publish static code analysis. (Recommended)
+
+![image](https://user-images.githubusercontent.com/75414098/110336943-a5e00780-8025-11eb-95ff-e034a0bde11f.png)
 
 ## Advantages on moving to Azure cloud
 ### Scalability & Elasticity
